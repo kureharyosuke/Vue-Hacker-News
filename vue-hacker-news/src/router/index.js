@@ -9,6 +9,10 @@ Vue.use(VueRouter);
 export const router = new VueRouter({
   routes: [
     {
+        path: '/',
+        redirect: '/news', // vue router 기본속성기능
+    },
+    {
         // path: url 주소
         path: '/news',
         // component: url 주소가 갔을 때, 표시될 컴포넌트 (페이지)
