@@ -19,6 +19,17 @@ function fecthNewsList() {
 //     .then()
 //     .catch()
 
+function fecthJobsList() {
+    return axios.get(`${config.baseUrl}jobs/1.json`)
+    // return axios.get( config.baseUrl + 'jobs/1.json')
+}
+    function fecthShowList() {
+        return axios.get(`${config.baseUrl}show/1.json`)
+        // return axios.get(config.baseUrl + 'show/1.json')
+    }
+
 export {
-    fecthNewsList
+    fecthNewsList,
+    fecthJobsList,
+    fecthShowList
 }

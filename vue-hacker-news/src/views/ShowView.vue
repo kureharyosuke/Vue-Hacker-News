@@ -1,22 +1,23 @@
 <template>
   <div>
-      <div v-for="item in items" :key="itme">{{items}}</div>
+      <div v-for="show in shows" :key="show">{{show}}</div>
   </div>
 </template>
 
 <script>
+import { fecthShowList } from '../api/index';
 export default {
     data() {
         return {
-            items: []
+            shows: []
         }
     },
     created() {
-        var item = this;
-        fetchItemList() 
+        var sw = this;
+        fecthShowList()
         .then(function(response){
-            console.log(response); //?
-            item.items = response.data
+            console.log(response);
+            sw.shows = response.data;
         })
         .catch(function(error){
             console.log(error)
