@@ -1,11 +1,12 @@
 <template>
   <div>
       <div v-for="user in users">{{ user }}</div>
+      <div v-for="user in users">{{ user.title }}</div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import { fecthNewsList } from '../api/index.js'
 
 export default {
   data() {
@@ -15,10 +16,10 @@ export default {
   },
   created() {
     var vm = this;
+    fecthNewsList()
     // axios.get('https://api.hnpwa.com/v0/news/1.json')
     //   .then(response => this.users = response.data)
     //   .catch()
-    axios.get('https://api.hnpwa.com/v0/news/1.json')
       .then(function(response) {
         console.log(response)
         vm.users = response.data;
