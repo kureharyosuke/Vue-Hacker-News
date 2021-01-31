@@ -1,6 +1,7 @@
 <template>
   <div>
-      <div v-for="ask in asklist" :key="ask">{{asklist}}</div>
+      <div v-for="ask in asklist" :key="ask">{{ask}}</div>
+      <div v-for="ask in asklist" :key="ask">{{ask.title}}</div>
   </div>
 </template>
 
@@ -22,9 +23,7 @@ export default {
         console.log(response)
         this.asklist = response.data;
       })
-      .catch(function(error){
-        console.log(error)
-      })
+      .catch(error=> console.log(error));
 
       // var as = this;
       // fetchAskList()

@@ -52,7 +52,7 @@ function fetchAskList() {
  
 export {
     fetchList,
-    // fetchNewsList,
+    fetchNewsList,
     fetchJobsList,
     fetchShowList,
     fetchNewestList,

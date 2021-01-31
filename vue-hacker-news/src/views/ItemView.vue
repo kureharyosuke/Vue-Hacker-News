@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div v-for="item in items" :key="itme">{{items}}</div>
+      <div v-for="item in items" :key="itme">{{item}}</div>
   </div>
 </template>
 
@@ -11,17 +11,17 @@ export default {
             items: []
         }
     },
-    created() {
-        var item = this;
-        fetchItemList() 
-        .then(function(response){
-            console.log(response); //?
-            item.items = response.data
-        })
-        .catch(function(error){
-            console.log(error)
-        })
-    }
+    // created() {
+    //     var item = this;
+    //     fetchItemList() 
+    //     .then(function(response){
+    //         console.log(response); //?
+    //         item.items = response.data
+    //     })
+    //     .catch(function(error){
+    //         console.log(error)
+    //     })
+    // }
 
 }
 </script>
