@@ -1,31 +1,35 @@
 <template>
   <div>
-      <div v-for="news in newLists" :key="news">{{ news }}</div>
-      <div v-for="news in newLists" :key="news">{{ news.title }}</div>
+      <div v-for="news in this.$store.state.news" :key="news">{{ news }}</div>
+      <div v-for="news in this.$store.state.news" :key="news">{{ news.title }}</div>
   </div>
 </template>
 
 <script>
 // import { fetchNewsList } from '../api/index.js'
-import { fetchList } from '../api/index.js';
+// import { fetchList } from '../api/index.js';
 
 export default {
-  data() {
-    return {
-      newLists: []
-    }
-  },
+  // data() {
+  //   return {
+  //     newLists: []
+  //   }
+  // },
   created() {
-    // V2
-    const type = 'news';
-    fetchList(type)
-      .then((response)=>{
-      this.newLists = response.data;
-      console.log(response);
-      })
-      .catch(function(error){
-        console.log(error);
-      })
+    this.$store.dispatch('FETCH_NEWS')
+
+
+
+    // // V2
+    // const type = 'news';
+    // fetchList(type)
+    //   .then((response)=>{
+    //   this.newLists = response.data;
+    //   console.log(response);
+    //   })
+    //   .catch(function(error){
+    //     console.log(error);
+    //   })
 
     // var vm = this;
     // fetchNewsList()
