@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 // import { fetchList } from '../api/index.js';
-import { fetchJobsList, fetchNewsList } from '../api/index.js'
-import { fetchNewestList } from '../api/index.js'
-import { fetchAskList } from '../api/index.js'
-import { fetchShowList } from '../api/index.js'
+import { fetchJobsList, fetchNewsList, fetchShowList , fetchAskList, fetchNewestList  } from '../api/index.js'
+// import { fetchNewestList } from '../api/index.js'
+// import { fetchAskList } from '../api/index.js'
+// import { fetchShowList } from '../api/index.js'
 // import { fetchJobsList } from '../api/index.js'
 
 
@@ -64,19 +64,19 @@ export const store = new Vuex.Store({
                     console.log(error)
                 })
         },
-        FETCH_SHOW(context) {
+        FETCH_SHOW({commit}) {
             fetchShowList()
-                .then(response => {
-                    context.commit('SET_SHOW', response.data);
-                    console.log(response)
+                .then(({data}) => {
+                    commit('SET_SHOW', data);
+                    console.log(data)
                 })
                 .catch(error => console.log(error))
 
         },
-        FETCH_JOBS(context) {
+        FETCH_JOBS(commit) {
             fetchJobsList()
-                .then(res => {
-                    context.commit('SET_JOBS', res.data)
+                .then(({data}) => {
+                    commit('SET_JOBS', data)
                 })
                 .catch(err => console.log(err))
         }

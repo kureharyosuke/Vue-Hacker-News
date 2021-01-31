@@ -1,13 +1,13 @@
 <template>
   <div>
-      <div v-for="show in this.$store.state.show" :key="show">{{show}}</div>
       <div v-for="show in this.$store.state.show" :key="show">{{show.title}}</div>
+      <div v-for="show in this.$store.state.show" :key="show">{{show}}</div>
   </div>
 </template>
 
 <script>
 // import { fetchShowList } from '../api/index';
-import { fetchList } from '../api/index';
+// import { fetchList } from '../api/index';
 
 export default {
     // data() {
