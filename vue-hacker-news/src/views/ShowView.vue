@@ -1,7 +1,7 @@
 <template>
   <div>
-      <div v-for="show in shows" :key="show">{{show}}</div>
-      <div v-for="show in shows" :key="show">{{show.title}}</div>
+      <div v-for="show in this.$store.state.show" :key="show">{{show}}</div>
+      <div v-for="show in this.$store.state.show" :key="show">{{show.title}}</div>
   </div>
 </template>
 
@@ -10,22 +10,25 @@
 import { fetchList } from '../api/index';
 
 export default {
-    data() {
-        return {
-            shows: []
-        }
-    },
+    // data() {
+    //     return {
+    //         shows: []
+    //     }
+    // },
     created() {
-        //v2
-        const type = 'show';
-        fetchList(type)
-        .then(res => {
-            console.log(res)
-            this.shows = res.data;
-        })
-        .then(error => {
-            console.log(error)
-        })
+
+        this.$store.dispatch('FETCH_SHOW')
+
+        // //v2
+        // const type = 'show';
+        // fetchList(type)
+        // .then(res => {
+        //     console.log(res)
+        //     this.shows = res.data;
+        // })
+        // .then(error => {
+        //     console.log(error)
+        // })
 
 
         // var sw = this;
