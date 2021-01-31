@@ -31,10 +31,10 @@ function fetchNewsList() {
 //     .then()
 //     .catch()
 
-function fetchJobsList() {
-    return axios.get(`${config.baseUrl}jobs/1.json`)
-    // return axios.get( config.baseUrl + 'jobs/1.json')
-}
+// function fetchJobsList() {
+//     return axios.get(`${config.baseUrl}jobs/1.json`)
+//     // return axios.get( config.baseUrl + 'jobs/1.json')
+// }
    
 function fetchShowList() {
         return axios.get(`${config.baseUrl}show/1.json`)
@@ -53,7 +53,7 @@ function fetchAskList() {
 export {
     fetchList,
     fetchNewsList,
-    fetchJobsList,
+    // fetchJobsList,
     fetchShowList,
     fetchNewestList,
     fetchAskList
