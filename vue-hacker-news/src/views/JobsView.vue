@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { fecthJobsList } from '../api'
+import { fetchJobsList } from '../api'
 export default {
   data() {
     return {
@@ -14,7 +14,7 @@ export default {
   },
   created() {
     var jm = this;
-    fecthJobsList()
+    fetchJobsList()
       .then(function(response) {
         console.log(response)
         jm.jobs = response.data

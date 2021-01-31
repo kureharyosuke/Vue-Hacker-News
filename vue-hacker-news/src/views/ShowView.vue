@@ -1,11 +1,12 @@
 <template>
   <div>
       <div v-for="show in shows" :key="show">{{show}}</div>
+      <div v-for="show in shows" :key="show">{{show.title}}</div>
   </div>
 </template>
 
 <script>
-import { fecthShowList } from '../api/index';
+import { fetchShowList } from '../api/index';
 export default {
     data() {
         return {
@@ -14,7 +15,7 @@ export default {
     },
     created() {
         var sw = this;
-        fecthShowList()
+        fetchShowList()
         .then(function(response){
             console.log(response);
             sw.shows = response.data;

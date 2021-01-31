@@ -5,9 +5,25 @@
 </template>
 
 <script>
-import {} from '../api/index'
-export default {
+import { fetchAskList } from '../api/index'
 
+export default {
+    data() {
+      return {
+        asklist: []
+      }
+    },
+    created() {
+      var as = this;
+      fetchAskList()
+      .then(function(response){
+        console.log(response)
+        as.asklist = response.data
+      })
+      .catch(function (error) {
+        console.log(error)
+      }) 
+    }
 }
 </script>
 

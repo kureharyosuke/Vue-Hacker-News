@@ -3,9 +3,10 @@ import VueRouter from 'vue-router';
 import NewsView from '../views/NewsView.vue';
 import AskView from '../views/AskView.vue';
 import JobsView from '../views/JobsView.vue';
-import UserView from '../views/UserView.vue'
-import ItemView from '../views/ItemView.vue'
-import ShowView from '../views/ShowView.vue'
+import UserView from '../views/UserView.vue';
+import ItemView from '../views/ItemView.vue';
+import ShowView from '../views/ShowView.vue';
+import NewestView from '../views/NewestView.vue';
 
 
 Vue.use(VueRouter);
@@ -42,6 +43,10 @@ export const router = new VueRouter({
     {
       path: '/show',
       component: ShowView,
+    },
+    {
+      path: '/newest',
+      component: NewestView,
     }
   ]
 })
