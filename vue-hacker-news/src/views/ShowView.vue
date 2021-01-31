@@ -6,7 +6,9 @@
 </template>
 
 <script>
-import { fetchShowList } from '../api/index';
+// import { fetchShowList } from '../api/index';
+import { fetchList } from '../api/index';
+
 export default {
     data() {
         return {
@@ -14,15 +16,27 @@ export default {
         }
     },
     created() {
-        var sw = this;
-        fetchShowList()
-        .then(function(response){
-            console.log(response);
-            sw.shows = response.data;
+        //v2
+        const type = 'show';
+        fetchList(type)
+        .then(res => {
+            console.log(res)
+            this.shows = res.data;
         })
-        .catch(function(error){
+        .then(error => {
             console.log(error)
         })
+
+
+        // var sw = this;
+        // fetchShowList()
+        // .then(function(response){
+        //     console.log(response);
+        //     sw.shows = response.data;
+        // })
+        // .catch(function(error){
+        //     console.log(error)
+        // })
     }
 
 }

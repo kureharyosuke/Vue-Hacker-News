@@ -2,7 +2,19 @@ import axios from 'axios';
 
 // HTTP Request & Response와 관련된 기본 설정
 const config = {
-    baseUrl: 'https://api.hnpwa.com/v0/'
+    baseUrl: 'https://api.hnpwa.com/v0/',
+    // V2
+    news: 'news/1.json',
+    newest: 'newest/1.json',
+    ask: 'ask/1.json',
+    show: 'show/1.json',
+    jobs: 'jobs.1.json'
+}
+
+// V2
+function fetchList(type) {
+    type = config[type]
+    return axios.get(`${config.baseUrl}${type}`)
 }
 
 function fetchNewsList() {
@@ -39,7 +51,8 @@ function fetchAskList() {
 }
  
 export {
-    fetchNewsList,
+    fetchList,
+    // fetchNewsList,
     fetchJobsList,
     fetchShowList,
     fetchNewestList,

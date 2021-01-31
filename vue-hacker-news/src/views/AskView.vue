@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import { fetchAskList } from '../api/index'
+// import { fetchAskList } from '../api/index'
+import { fetchList } from '../api/index';
 
 export default {
     data() {
@@ -14,15 +15,26 @@ export default {
       }
     },
     created() {
-      var as = this;
-      fetchAskList()
-      .then(function(response){
+      // #v2
+      const type = 'ask';
+      fetchList(type)
+      .then(response => {
         console.log(response)
-        as.asklist = response.data
+        this.asklist = response.data;
       })
-      .catch(function (error) {
+      .catch(function(error){
         console.log(error)
-      }) 
+      })
+
+      // var as = this;
+      // fetchAskList()
+      // .then(function(response){
+      //   console.log(response)
+      //   as.asklist = response.data
+      // })
+      // .catch(function (error) {
+      //   console.log(error)
+      // }) 
     }
 }
 </script>
