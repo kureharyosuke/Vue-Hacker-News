@@ -1,12 +1,13 @@
 <template>
   <div>
-      <div v-for="newest in newests" :key="newest">{{newest}}</div>
+      <div v-for="newest in this.$store.state.newest" :key="newest">{{newest}}</div>
   </div>
 </template>
 
 <script>
 // import { fetchNewestList } from '../api/index';
-import {fetchList} from '../api/index.js';
+// import {fetchList} from '../api/index.js';
+
 export default {
     data() {
         return {
@@ -14,16 +15,20 @@ export default {
         }
     },
     created() {
-        //v2
-        const type = 'newest';
-        fetchList(type)
-        .then((response) => {
-            console.log(response);
-            this.newests = response.data;
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+
+        this.$store.dispatch('FETCH_NEWEST')
+
+
+        // //v2
+        // const type = 'newest';
+        // fetchList(type)
+        // .then((response) => {
+        //     console.log(response);
+        //     this.newests = response.data;
+        // })
+        // .catch((error) => {
+        //     console.log(error);
+        // })
         // var nv = this;
         // fetchNewestList()
         // .then(function(response){
