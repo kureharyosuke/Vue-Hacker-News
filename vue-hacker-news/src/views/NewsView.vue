@@ -1,31 +1,44 @@
 <template>
   <div>
-      <div v-for="user in users">{{ user }}</div>
+      <div v-for="news in newLists" :key="news">{{ news }}</div>
+      <div v-for="news in newLists" :key="news">{{ news.title }}</div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+// import { fetchNewsList } from '../api/index.js'
+import { fetchList } from '../api/index.js';
 
 export default {
   data() {
     return {
-      users: []
+      newLists: []
     }
   },
   created() {
-    var vm = this;
-    // axios.get('https://api.hnpwa.com/v0/news/1.json')
-    //   .then(response => this.users = response.data)
-    //   .catch()
-    axios.get('https://api.hnpwa.com/v0/news/1.json')
-      .then(function(response) {
-        console.log(response)
-        vm.users = response.data;
+    // V2
+    const type = 'news';
+    fetchList(type)
+      .then((response)=>{
+      this.newLists = response.data;
+      console.log(response);
       })
-      .catch(function(error) {
-        console.log(error)
+      .catch(function(error){
+        console.log(error);
       })
+
+    // var vm = this;
+    // fetchNewsList()
+    // // axios.get('https://api.hnpwa.com/v0/news/1.json')
+    // //   .then(response => this.newlists = response.data)
+    // //   .catch()
+    //   .then(function(response) {
+    //     console.log(response)
+    //     vm.newlists = response.data;
+    //   })
+    //   .catch(function(error) {
+    //     console.log(error)
+    //   })
   }
 }
 </script>

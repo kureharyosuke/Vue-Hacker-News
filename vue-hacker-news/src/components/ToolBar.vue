@@ -2,7 +2,9 @@
   <div class="header">
       <!-- a tag | to는 URl 입력  -->
       <router-link to="/news">News</router-link> |
+      <router-link to="/newest">Newest</router-link> |
       <router-link to="/ask">Ask</router-link> |
+      <router-link to="/show">Show</router-link> |
       <router-link to="/jobs">Jobs</router-link> 
   </div>
 </template>
