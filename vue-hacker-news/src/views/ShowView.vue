@@ -1,7 +1,7 @@
 <template>
   <div>
       <p v-for="show in this.$store.state.show" :key="show">
-          <a href="show.url">
+          <a :href="show.url">
               {{show.title}}
           </a>
           <small>
