@@ -13,6 +13,9 @@ export default {
             state.show = show;
         },
         SET_JOBS(state, jobs) {
-            state.jobs = jobs
+            state.jobs = jobs;
+        },
+        SET_USER(state, user) {
+            state.user = user;
         }
 }
