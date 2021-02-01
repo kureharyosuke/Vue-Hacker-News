@@ -49,6 +49,10 @@ function fetchNewestList() {
 function fetchAskList() {
     return axios.get(`${config.baseUrl}ask/1.json`)
 }
+
+function fetchUserInfo(username) {
+    return axios.get(`${config.baseUrl}user/${username}.json`)
+}
  
 export {
     fetchList,
@@ -56,5 +60,6 @@ export {
     // fetchJobsList,
     fetchShowList,
     fetchNewestList,
-    fetchAskList
+    fetchAskList,
+    fetchUserInfo
 }
