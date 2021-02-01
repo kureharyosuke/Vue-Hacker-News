@@ -1,47 +1,29 @@
 <template>
   <div>
-      <div v-for="show in this.$store.state.show" :key="show">{{show.title}}</div>
-      <div v-for="show in this.$store.state.show" :key="show">{{show}}</div>
+      <p v-for="show in this.$store.state.show" :key="show">
+          <a href="show.url">
+              {{show.title}}
+          </a>
+          <small>
+              {{show.time_ago}} by {{show.user}}
+          </small>
+      </p>
   </div>
 </template>
 
 <script>
-// import { fetchShowList } from '../api/index';
-// import { fetchList } from '../api/index';
+import { mapGetters } from 'vuex';
 
 export default {
-    // data() {
-    //     return {
-    //         shows: []
-    //     }
-    // },
+
+    computed: {
+        ...mapGetters([
+            'fetchedShow'
+        ])
+    },
     created() {
-
         this.$store.dispatch('FETCH_SHOW')
-
-        // //v2
-        // const type = 'show';
-        // fetchList(type)
-        // .then(res => {
-        //     console.log(res)
-        //     this.shows = res.data;
-        // })
-        // .then(error => {
-        //     console.log(error)
-        // })
-
-
-        // var sw = this;
-        // fetchShowList()
-        // .then(function(response){
-        //     console.log(response);
-        //     sw.shows = response.data;
-        // })
-        // .catch(function(error){
-        //     console.log(error)
-        // })
     }
-
 }
 </script>
 
