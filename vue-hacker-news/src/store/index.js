@@ -15,12 +15,24 @@ export const store = new Vuex.Store({
         jobs: [],
     },
     getters: {
+        fetchedNews(state) {
+            return state.news
+        },
+        fetchNewest(state) {
+            return state.newest
+        },
         fetchedAsk(state) {
-            return state.ask;
+            return state.ask
+        },
+        fetchedShow(state) {
+            return state.show
+        },
+        fetchedJobs(state) {
+            return state.jobs
         }
     },
-    mutations: mutations,
-    actions: actions
+    mutations,
+    actions,
 })
 
 // new Vuex.Store({

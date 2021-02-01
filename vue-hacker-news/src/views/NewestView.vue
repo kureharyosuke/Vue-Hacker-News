@@ -1,43 +1,27 @@
 <template>
   <div>
-      <div v-for="newest in this.$store.state.newest" :key="newest">{{newest}}</div>
+      <p v-for="newest in this.$store.state.newest" :key="newest">
+          <a :href="newest.url">
+              {{newest.title}}
+          </a>
+          <small>
+             {{newest.time_ago}} by {{newest.user}}
+          </small>
+      </p>
   </div>
 </template>
 
 <script>
-// import { fetchNewestList } from '../api/index';
-// import {fetchList} from '../api/index.js';
+import { mapGetters } from 'vuex';
 
-export default {
-    data() {
-        return {
-            newests: []
-        }
+export default {  
+    computed: {
+        ...mapGetters([
+            "fetchedNewest"
+        ])
     },
     created() {
-
         this.$store.dispatch('FETCH_NEWEST')
-
-
-        // //v2
-        // const type = 'newest';
-        // fetchList(type)
-        // .then((response) => {
-        //     console.log(response);
-        //     this.newests = response.data;
-        // })
-        // .catch((error) => {
-        //     console.log(error);
-        // })
-        // var nv = this;
-        // fetchNewestList()
-        // .then(function(response){
-        //     console.log(response)
-        //     nv.newests = response.data;
-        // })
-        // .catch(function(error){
-        //     console.log(error);
-        // })
     }
 
 }
