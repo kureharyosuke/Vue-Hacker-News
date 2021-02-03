@@ -1,6 +1,6 @@
 <template>
   <div>
-      <p v-for="show in this.$store.state.show" :key="show">
+      <p v-for="show in fetchedShow" :key="show">
           <a :href="show.url">
               {{show.title}}
           </a>

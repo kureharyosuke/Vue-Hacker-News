@@ -5,6 +5,7 @@ import {
   fetchAskList,
   fetchNewestList,
   fetchUserInfo,
+  fetchItemInfo
 } from "../api/index.js";
 //1. backenc api  -> actions
 export default {
@@ -60,4 +61,13 @@ export default {
             console.log(error)
         })
   },
+  FETCH_ITEM({ commit }, id) {
+    fetchItemInfo(id)
+      .then(({data}) => {
+       commit('SET_ITEM', data);
+      })
+      .catch(error => {
+        console.log(error)
+      })
+  }
 };
