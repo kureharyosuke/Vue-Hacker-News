@@ -4,7 +4,7 @@
       <p>karma : {{fetchedUser.karma}}</p>
       <p>created : {{fetchedUser.created}}</p>
       <!-- <p>created : {{userInfo.created}}</p> -->
-      <p>{{this.$store.state.user.id}}</p>
+      <!-- <p>{{this.$store.state.user.id}}</p> -->
   </div>
 </template>
 

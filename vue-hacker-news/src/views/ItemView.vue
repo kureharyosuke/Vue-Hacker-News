@@ -1,28 +1,30 @@
 <template>
   <div>
-      <div v-for="item in items" :key="itme">{{item}}</div>
+      {{ this.$store.state.item}}
+      <p v-for="item in fetchedItem" :key="item">
+          <a :href="item.url">
+              {{item.title}}
+          </a>
+      </p>
+      <p>ID : {{fetchedItem.id}}</p>
+      <p>TITLE : {{fetchedItem.title}}</p>
+      <p>POINTS : {{fetchedItem.points}}</p>
   </div>
 </template>
 
 <script>
+import {  mapGetters } from 'vuex';
 export default {
-    data() {
-        return {
-            items: []
-        }
+    computed: {
+        ...mapGetters([
+            'fetchedItem'
+        ])
     },
-    // created() {
-    //     var item = this;
-    //     fetchItemList() 
-    //     .then(function(response){
-    //         console.log(response); //?
-    //         item.items = response.data
-    //     })
-    //     .catch(function(error){
-    //         console.log(error)
-    //     })
-    // }
-
+    created() {
+        console.log(this.$route.params.id)
+        const itemId = this.$route.params.id;
+        this.$store.dispatch('FETCH_ITEM', itemId)
+    }
 }
 </script>
 
