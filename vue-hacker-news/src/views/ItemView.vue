@@ -1,14 +1,30 @@
 <template>
   <div>
-      {{ this.$store.state.item}}
-      <p v-for="item in fetchedItem" :key="item">
-          <a :href="item.url">
-              {{item.title}}
-          </a>
-      </p>
+      <section>
+          <!-- 질문 상세정보 -->
+            <div>
+              <div>
+                 User
+              </div>
+              <div>
+                  <router-link :to="`/user/${fetchedItem.user}`" >
+                      {{ fetchedItem.user }}
+                  </router-link>
+                  <div>
+                      {{ fetchedItem.time_ago}}
+                  </div>
+              </div>
+            </div>
+            <h2>{{fetchedItem.title}}</h2>
+      </section>
+      <section>
+          <!-- 질문 댓글 -->
+      </section>
       <p>ID : {{fetchedItem.id}}</p>
       <p>TITLE : {{fetchedItem.title}}</p>
       <p>POINTS : {{fetchedItem.points}}</p>
+      <p>{{fetchedItem.user }} by {{fetchedItem.time_ago}}</p>
+      <p>POINTS : {{fetchedItem.content}}</p>
   </div>
 </template>
 
