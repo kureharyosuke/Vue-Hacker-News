@@ -1,6 +1,6 @@
 <template>
   <div>
-      <p v-for="newest in this.$store.state.newest" :key="newest">
+      <p v-for="newest in fetchedNewest" :key="newest">
           <a :href="newest.url">
               {{newest.title}}
           </a>

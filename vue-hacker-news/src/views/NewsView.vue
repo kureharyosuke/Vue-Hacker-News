@@ -1,6 +1,6 @@
 <template>
   <div>
-      <p v-for="news in this.$store.state.news" :key="news">
+      <p v-for="news in fetchedNews" :key="news">
         <a :href="news.url">
           {{news.title}}
         </a>
