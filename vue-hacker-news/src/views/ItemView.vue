@@ -3,7 +3,7 @@
       <section>
           <!-- 질문 상세정보 -->
             <div>
-              <div class="flex" >
+              <div class="flex items-center" >
                   <router-link :to="`/user/${fetchedItem.user}`" >
                       <a-icon type="user" />
                       {{ fetchedItem.user }}
