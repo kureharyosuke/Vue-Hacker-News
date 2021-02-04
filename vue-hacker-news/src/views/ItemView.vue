@@ -3,7 +3,7 @@
       <section>
           <!-- 질문 상세정보 -->
             <div>
-              <div class="flex items-center">
+              <div class="flex" >
                   <router-link :to="`/user/${fetchedItem.user}`" >
                       <a-icon type="user" />
                       {{ fetchedItem.user }}
@@ -14,6 +14,9 @@
               </div>
             </div>
             <h2>{{fetchedItem.title}}</h2>
+            <button class="bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white...">
+                Hover me
+            </button>
       </section>
       <section>
           <!-- 질문 댓글 -->
