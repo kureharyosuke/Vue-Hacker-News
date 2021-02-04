@@ -1,7 +1,7 @@
 <template>
   <div>
       <p v-for="news in fetchedNews" :key="news">
-        <a :href="news.url">
+        <a :href="news.url" class="text-red-500 sm:text-orange-500 md:text-gray-500 lg:text-purple-500">
           {{news.title}}
         </a>
         <small>

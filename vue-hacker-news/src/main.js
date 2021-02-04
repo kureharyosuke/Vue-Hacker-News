@@ -6,6 +6,7 @@ import { router } from './routes/index.js';
 import { store } from './store/index.js'
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
+import './assets/styles/index.css';
 
 Vue.use(Antd);
 
