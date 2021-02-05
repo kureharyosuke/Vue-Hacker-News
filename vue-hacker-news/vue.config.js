@@ -1,5 +1,12 @@
 module.exports = {
-   lintOnSave: false
-}
-
-//https://cli.vuejs.org/config/#lintonsave
+   configureWebpack: {
+     module: {
+       rules: [
+         {
+           test: /\.css$/,
+           use: ['postcss-loader']
+         }
+       ]
+     }
+   }
+ }

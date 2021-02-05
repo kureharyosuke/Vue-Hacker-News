@@ -1,7 +1,7 @@
 <template>
   <div>
     <p v-for="ask in fetchedAsk" :key="ask">
-      <router-link :to="`item/${ask.id}`">
+      <router-link :to="`item/${ask.id}`" class="text-red-500 sm:text-orange-500 md:text-gray-500 lg:text-purple-500">
         {{ask.title}}
       </router-link>
       <small>
