@@ -43,10 +43,10 @@
 import { mapGetters } from "vuex";
 import MenuIcon from 'vue-material-design-icons/Menu.vue';
 
-import { mdiAccount } from '@mdi/js';
+// import { mdiAccount } from '@mdi/js';
 
 export default {
-  components: { MenuIcon, mdiAccount },
+  components: { MenuIcon },
   computed: {
     ...mapGetters(["fetchedItem"]),
   },

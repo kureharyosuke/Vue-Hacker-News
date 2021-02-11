@@ -4,7 +4,9 @@
     <!-- <news-view></news-view> -->
     <!-- <ToolBar></ToolBar> -->
     <tool-bar></tool-bar>
-    <router-view></router-view>
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -28,5 +30,13 @@ export default {
 body {
   padding: 0; 
   margin: 0;
+}
+
+/* Router Transition */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>
