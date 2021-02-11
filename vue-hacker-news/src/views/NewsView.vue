@@ -1,32 +1,49 @@
 <template>
   <div>
-      <p v-for="news in fetchedNews" :key="news">
-        <a :href="news.url" class="text-red-500 sm:text-orange-500 md:text-gray-500 lg:text-purple-500">
-          {{news.title}}
-        </a>
-        <small>
-         {{news.time_ago}} by 
-         <router-link v-bind:to="`/user/${news.user}`">{{news.user}}</router-link>
-        </small>
-      </p>
+    <ul class="m-0 p-0">
+      <li
+        v-for="item in this.$store.state.news"
+        :key="item"
+        class="flex items-center border-b border-solid p-2"
+      >
+        <!-- 포인트 영역 -->
+        <div class="w-14 ml-6 font-color">
+          {{ item.points }}
+        </div>
+        <!-- 정보 영역 -->
+        <div>
+          <p class="text-red-500 sm:text-orange-500 md:text-gray-500 lg:text-purple-500">
+            <a :href="item.url">
+              {{ item.title }}
+            </a>
+          </p>
+          <small>
+            {{ item.time_age }} by
+            <router-link :to="`/user/${item.user}`">{{
+              item.user
+            }}</router-link>
+          </small>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters([
-      'fetchedNews'
-    ])
+    ...mapGetters(["fetchedNews"]),
   },
   created() {
-    this.$store.dispatch('FETCH_NEWS')
-  }
-}
+    this.$store.dispatch("FETCH_NEWS");
+  },
+};
 </script>
 
-<style>
-
+<style scoped>
+.font-color {
+  color: #42b883;
+}
 </style>

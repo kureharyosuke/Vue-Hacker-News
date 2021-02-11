@@ -1,10 +1,7 @@
 <template>
   <div id="app">
-    <!-- url에 만약 news -->
-    <!-- <news-view></news-view> -->
-    <!-- <ToolBar></ToolBar> -->
     <tool-bar></tool-bar>
-    <transition name="fade">
+    <transition name="page">
       <router-view></router-view>
     </transition>
   </div>
@@ -12,15 +9,10 @@
 
 <script>
 import ToolBar from './components/ToolBar.vue';
-// import NewsView from './views/NewsView.vue'
-// /* eslint-disable */
 export default {
   components: { ToolBar },
-  // components: { NewsView },
   methods: {
     fetchData() {
-      console.log('HI')
-      console.log('G')
     }
   }
 }
@@ -32,11 +24,24 @@ body {
   margin: 0;
 }
 
+a {
+  color: #34495e;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #42b883;
+}
+
+a.router-link-exact-active {
+  text-decoration: underline;
+}
+
 /* Router Transition */
-.fade-enter-active, .fade-leave-active {
+.page-enter-active, .page-leave-active {
   transition: opacity .5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.page-enter, .page-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 </style>
