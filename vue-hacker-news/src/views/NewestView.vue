@@ -1,13 +1,31 @@
 <template>
   <div>
-      <p v-for="newest in fetchedNewest" :key="newest">
-          <a :href="fetchedNewest.url">
-              {{fetchedNewest.title}}
-          </a>
+     <ul class="m-0 p-0">
+      <li
+        v-for="item in fetchedNewest"
+        :key="item"
+        class="flex items-center border-b border-solid p-2"
+      >
+        <!-- 포인트 영역 -->
+        <div class="w-14 ml-6 font-color">
+          {{ item.points }}
+        </div>
+        <!-- 정보 영역 -->
+        <div>
+          <p class="text-red-500 sm:text-orange-500 md:text-gray-500 lg:text-purple-500">
+            <a :href="item.url">
+              {{ item.title }}
+            </a>
+          </p>
           <small>
-             {{fetchedNewest.time_ago}} by {{fetchedNewest.user}}
+            {{ item.time_age }} by
+            <router-link :to="`/user/${item.user}`">{{
+              item.user
+            }}</router-link>
           </small>
-      </p>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 

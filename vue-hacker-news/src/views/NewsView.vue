@@ -2,7 +2,7 @@
   <div>
     <ul class="m-0 p-0">
       <li
-        v-for="item in this.$store.state.news"
+        v-for="item in fetchedNews"
         :key="item"
         class="flex items-center border-b border-solid p-2"
       >
