@@ -2,33 +2,17 @@ import Vue from 'vue'
 import App from './App.vue'
 import { router } from './routes/index.js';
 import { store } from './store/index.js'
-import Antd from 'ant-design-vue';
-import 'ant-design-vue/dist/antd.css';
 import './assets/styles/index.css';
+import VueMdijs from 'vue-mdijs'
+import { mdiMagnify } from '@mdi/js'
 
-Vue.use(Antd);
-
+VueMdijs.add({ mdiMagnify })
+Vue.use(VueMdijs)
 
 Vue.config.productionTip = false
 
-// new Vuex.Store({
-//   state,
-//   getters,
-//   mutations,
-//   actions,
-// })
-
-// Vue.use(VueRouter);
-
-// const router = new VueRouter({
-//   routes: [
-
-//   ]
-// })
-
 new Vue({
   render: h => h(App),
-  // router: router, 축약하는 문법은 router,
   router,
   store,
 }).$mount('#app')

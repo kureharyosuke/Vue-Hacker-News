@@ -1,11 +1,11 @@
 <template>
   <div>
       <p v-for="newest in fetchedNewest" :key="newest">
-          <a :href="newest.url">
-              {{newest.title}}
+          <a :href="fetchedNewest.url">
+              {{fetchedNewest.title}}
           </a>
           <small>
-             {{newest.time_ago}} by {{newest.user}}
+             {{fetchedNewest.time_ago}} by {{fetchedNewest.user}}
           </small>
       </p>
   </div>
